@@ -1,3 +1,6 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-plusplus */
 /* eslint-disable consistent-return */
 /* ********************************************************************************************
  *                                                                                            *
@@ -304,8 +307,10 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  const b = arr.filter((a) => a > 0 && typeof a === 'number');
+
+  return b.length;
 }
 
 /**
@@ -321,8 +326,9 @@ function getPositivesCount(/* arr */) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const myArray = 'zero one two three four five six seven eight nine';
+  return arr.sort((a, b) => myArray.indexOf(a) - myArray.indexOf(b));
 }
 
 /**
@@ -337,8 +343,11 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  return arr.reduce((a, b) => a + b);
 }
 
 /**
@@ -353,8 +362,12 @@ function getItemsSum(/* arr */) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  let falsyValuesCount = 0;
+  arr.filter((elem) => {
+    if ((Boolean(elem) === false)) { falsyValuesCount++; }
+  });
+  return falsyValuesCount;
 }
 
 /**
@@ -371,8 +384,15 @@ function getFalsyValuesCount(/* arr */) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurences(arr, item) {
+  let number = 0;
+
+  arr.filter((a) => {
+    if (a === item) {
+      return number++;
+    }
+  });
+  return number;
 }
 
 /**
