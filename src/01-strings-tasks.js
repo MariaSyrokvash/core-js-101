@@ -204,24 +204,10 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  // let topSide = '';
-  // let botSide = '';
-  // let midSide = '';
-  // const symb1 = '-';
-  // const symb2 = ' ';
-  // const symb3 = '│';
-
-  // if (width < 2 || height < 2) return false;
-
-  // // eslint-disable-next-line no-useless-concat
-  // topSide += `${symb1}┌${symb1}${symb1.repeat(width - 3)}┐` + '\n';
-  // midSide += `${symb1 + symb3 + symb2.repeat(width - 2) + symb3}\n`;
-  // // eslint-disable-next-line no-useless-concat
-  // botSide += `${symb1}└${symb1.repeat(width - 2)}┘` + '\n';
-
-  // return topSide + midSide.repeat(height - 2) + botSide;
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  return `\u250C${'\u2500'.repeat(width - 2)}\u2510\n${
+    (`\u2502${'\u0020'.repeat(width - 2)}\u2502\n`).repeat(height - 2)
+  }\u2514${'\u2500'.repeat(width - 2)}\u2518\n`;
 }
 
 
