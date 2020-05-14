@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* *******************************************************************************************
  *                                                                                           *
  * Plese read the following tutorial before implementing tasks:                              *
@@ -32,7 +33,8 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-  throw new Error('Not implemented');
+  const reg = '[0-9a-fA-F]';
+  return new RegExp(`{${reg}{8}-(?:${reg}{4}-){3}${reg}{12}}`);
 }
 
 
@@ -54,7 +56,7 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-  throw new Error('Not implemented');
+  return /.*[is].*/;
 }
 
 
@@ -78,8 +80,9 @@ function getRegexForPitSpot() {
  *   'PASSW0RD'.match(validator)  => false
  *   'Pa55'.match(validator) => false
  */
-function getPasswordValidator(/* minLength */) {
-  throw new Error('Not implemented');
+function getPasswordValidator(minLength) {
+  const a = `^(?=\\w*[A-Z])(?=\\w*[a-z])(?=\\w*\\d)[a-zA-Z0-9]{${minLength},}`;
+  return new RegExp(a);
 }
 
 
