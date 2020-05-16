@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* *********************************************************************************************
  *                                                                                             *
  * Plese read the following tutorial before implementing tasks:                                *
@@ -23,8 +24,8 @@
  *   getComposition(Math.sin, Math.asin)(x) => Math.sin(Math.asin(x))
  *
  */
-function getComposition(/* f, g */) {
-  throw new Error('Not implemented');
+function getComposition(f, g) {
+  return (x) => f(g(x));
 }
 
 
@@ -44,8 +45,9 @@ function getComposition(/* f, g */) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+function getPowerFunction(exponent) {
+  // eslint-disable-next-line no-restricted-properties
+  return (x) => Math.pow(x, exponent);
 }
 
 
@@ -101,8 +103,19 @@ function memoize(/* func */) {
  * }, 2);
  * retryer() => 2
  */
-function retry(/* func, attempts */) {
-  throw new Error('Not implemented');
+function retry(func, attempts) {
+  // eslint-disable-next-line consistent-return
+  return () => {
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i <= attempts; i++) {
+      try {
+        return func();
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error('error');
+      }
+    }
+  };
 }
 
 
@@ -169,8 +182,9 @@ function partialUsingArguments(/* fn, ...args1 */) {
  *   getId4() => 7
  *   getId10() => 11
  */
-function getIdGeneratorFunction(/* startFrom */) {
-  throw new Error('Not implemented');
+function getIdGeneratorFunction(startFrom) {
+  // eslint-disable-next-line no-plusplus
+  return () => startFrom++;
 }
 
 
