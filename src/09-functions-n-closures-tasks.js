@@ -64,8 +64,9 @@ function getPowerFunction(exponent) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom() {
-  throw new Error('Not implemented');
+function getPolynom(...arr) {
+  // eslint-disable-next-line no-restricted-properties
+  return (val) => arr.reduce((prev, cur, i) => prev + cur * Math.pow(val, arr.length - 1 - i), 0);
 }
 
 
